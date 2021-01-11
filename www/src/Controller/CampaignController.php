@@ -218,7 +218,7 @@ class CampaignController extends AbstractController
                     $personArgument
                         ->setPerson($person)
                         ->setCampaign($campaign)
-                        ->setArgument($customArgument)
+                        ->setArgument(strip_tags($customArgument))
                     ;
 
                     $em->persist($personArgument);
