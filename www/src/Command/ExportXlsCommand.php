@@ -7,6 +7,7 @@ namespace App\Command;
 use App\Repository\CampaignRepository;
 use App\Utils\WriterInterface;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
@@ -30,6 +31,7 @@ class ExportXlsCommand extends Command
     {
         $this
             ->setDescription('Generates an export in .xls format.')
+            ->addArgument('campaign', InputArgument::REQUIRED, 'ID of the campaign to export')
         ;
     }
 
@@ -37,9 +39,17 @@ class ExportXlsCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        foreach ($this->campaignRepository->findActiveCampaigns() as $campaign) {
-            $io->success(sprintf('Wrote file: %s', $this->xlsWriter->write($campaign)));
+        $campaignId = (int) $input->getArgument('campaign');
+
+        $campaign = $this->campaignRepository->find($campaignId);
+
+        if (null === $campaign) {
+            $io->error(sprintf('Campaign %s not found.', $campaignId));
+
+            return -1;
         }
+
+        $io->success(sprintf('Wrote file: %s', $this->xlsWriter->write($campaign)));
 
         return 0;
     }
