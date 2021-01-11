@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Entity\Campaign;
 use App\Entity\CampaignEntry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -19,6 +20,20 @@ class CampaignEntryRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, CampaignEntry::class);
+    }
+
+    public function findByCampaign(Campaign $campaign)
+    {
+        return $this->createQueryBuilder('ce')
+            ->andWhere('ce.campaign = :campaign')
+
+            ->setParameter('campaign', $campaign)
+
+            ->addOrderBy('ce.createdAt', 'ASC')
+
+            ->getQuery()
+            ->getResult()
+        ;
     }
 
     // /**
