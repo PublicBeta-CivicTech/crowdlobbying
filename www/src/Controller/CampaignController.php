@@ -213,7 +213,7 @@ class CampaignController extends AbstractController
 
                 $personArgument = null;
 
-                if (0 === $argument && null !== $customArgument) {
+                if (!$argument && null !== $customArgument) {
                     $personArgument = new PersonArgument();
                     $personArgument
                         ->setPerson($person)
