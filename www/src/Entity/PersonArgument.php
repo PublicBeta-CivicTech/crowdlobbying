@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -37,7 +38,7 @@ class PersonArgument
     private $campaign;
 
     /**
-     * @var CampaignEntry
+     * @var CampaignEntry|Collection
      * @ORM\OneToMany(targetEntity="App\Entity\CampaignEntry", mappedBy="personArgument", cascade={"persist", "remove"})
      */
     private $campaignEntry;
@@ -89,7 +90,7 @@ class PersonArgument
         return $this;
     }
 
-    public function getCampaignEntry(): ?CampaignEntry
+    public function getCampaignEntry()
     {
         return $this->campaignEntry;
     }

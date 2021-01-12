@@ -108,3 +108,11 @@ easy_admin:
           - campaign
           - person
           - argument
+      edit:
+        fields:
+          - argument
+          - locale
+          - createdAt
+          - updatedAt
+          - campaign
+          - person
