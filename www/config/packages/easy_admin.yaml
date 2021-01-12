@@ -105,3 +105,4 @@ easy_admin:
           - createdAt
           - campaign
           - person
+          - argument
