@@ -58,7 +58,7 @@ class CampaignEntry
 
     /**
      * @var PersonArgument|null
-     * @ORM\ManyToOne(targetEntity="App\Entity\PersonArgument")
+     * @ORM\ManyToOne(targetEntity="App\Entity\PersonArgument", inversedBy="campaignEntry")
      * @ORM\JoinColumn(nullable=true)
      */
     private $personArgument;
