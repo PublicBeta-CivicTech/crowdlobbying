@@ -49,6 +49,12 @@ class PersonArgument
      */
     private $person;
 
+    /**
+     * @var string|null
+     * @ORM\Column(type="string")
+     */
+    private $locale;
+
     public function __toString(): string
     {
         return $this->argument;
@@ -103,6 +109,18 @@ class PersonArgument
     public function setPerson(?Person $person): self
     {
         $this->person = $person;
+
+        return $this;
+    }
+
+    public function getLocale(): ?string
+    {
+        return $this->locale;
+    }
+
+    public function setLocale(?string $locale): self
+    {
+        $this->locale = $locale;
 
         return $this;
     }

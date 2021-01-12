@@ -229,7 +229,7 @@ Gerbergasse 30<br>
       </notes>
       <segment>
         <source>Lobbyiere jetzt bei</source>
-        <target></target>
+        <target>Lobbying maintenant à</target>
       </segment>
     </unit>
     <unit id="CCsQTdX" name="Herzlichen Dank für Ihre Nachricht">
@@ -448,7 +448,7 @@ Gerbergasse 30<br>
       </notes>
       <segment>
         <source>Eigene Nachricht erfassen</source>
-        <target></target>
+        <target>Entrer votre propre message</target>
       </segment>
     </unit>
     <unit id=".yPxzCz" name="Meine Nachricht">
@@ -457,7 +457,7 @@ Gerbergasse 30<br>
       </notes>
       <segment>
         <source>Meine Nachricht</source>
-        <target></target>
+        <target>Mon message</target>
       </segment>
     </unit>
     <unit id=".sA.Buo" name="Absender">

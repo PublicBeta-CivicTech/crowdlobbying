@@ -66,16 +66,7 @@ class CampaignController extends AbstractController
         $campaignEntryRepository = $this->get(CampaignEntryRepository::class);
         $politicianRepository = $this->get(PoliticianRepository::class);
 
-        $entries = $campaignEntryRepository->findBy(
-            [
-                'campaign' => $campaign,
-                'confirmed' => true,
-            ],
-            [
-                'id' => 'desc',
-            ],
-            10
-        );
+        $entries = $campaignEntryRepository->findByCampaign($campaign, true, 10, $request->getLocale());
 
         shuffle($entries);
 
@@ -130,16 +121,7 @@ class CampaignController extends AbstractController
         $campaignEntryRepository = $this->get(CampaignEntryRepository::class);
         $politicianRepository = $this->get(PoliticianRepository::class);
 
-        $entries = $campaignEntryRepository->findBy(
-            [
-                'campaign' => $campaign,
-                'confirmed' => true,
-            ],
-            [
-                'id' => 'desc',
-            ],
-            10
-        );
+        $entries = $campaignEntryRepository->findByCampaign($campaign, true, 10, $request->getLocale());
 
         shuffle($entries);
 
@@ -147,7 +129,7 @@ class CampaignController extends AbstractController
             'campaign' => $campaign,
             'politicians' => $politicianRepository->findByTypeAndRegions($campaign->getPoliticianType(), [$region]),
             'latestEntries' => $entries,
-            'total' => \count($campaignEntryRepository->findBy(['campaign' => $campaign])),
+            'total' => \count($campaignEntryRepository->findByCampaign($campaign, true, null, $request->getLocale())),
             'region' => $region,
         ]);
     }
@@ -219,6 +201,7 @@ class CampaignController extends AbstractController
                         ->setPerson($person)
                         ->setCampaign($campaign)
                         ->setArgument(strip_tags($customArgument))
+                        ->setLocale($request->getLocale())
                     ;
 
                     $em->persist($personArgument);
@@ -363,15 +346,7 @@ class CampaignController extends AbstractController
     {
         $campaignEntryRepository = $this->get(CampaignEntryRepository::class);
 
-        $entries = $campaignEntryRepository->findBy(
-            [
-                'campaign' => $campaign,
-                'confirmed' => true,
-            ],
-            [
-                'id' => 'desc',
-            ]
-        );
+        $entries = $campaignEntryRepository->findByCampaign($campaign, true, null, $request->getLocale());
 
         if ('GET' === $request->getMethod() && $request->getLocale() !== $request->get('_locale')) {
             if ($request->query->get('id', 0) > 0) {
