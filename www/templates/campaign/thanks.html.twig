@@ -37,14 +37,12 @@
                                     </cite>
                                 </header>
                                     <p class="card__quote">
-                                        {% trans %}«{% endtrans %}
                                         {% if campaignEntry.argument %}
-                                            {{ campaignEntry.argument }}
+                                            {% trans %}«{% endtrans %}{{ campaignEntry.argument }}{% trans %}»{% endtrans %}
                                         {% endif %}
                                         {% if campaignEntry.personArgument %}
-                                            {{ campaignEntry.personArgument }}
+                                            {% trans %}«{% endtrans %}{{ campaignEntry.personArgument }}{% trans %}»{% endtrans %}
                                         {% endif %}
-                                        {% trans %}»{% endtrans %}
                                     </p>
                             </blockquote>
                         </div>
