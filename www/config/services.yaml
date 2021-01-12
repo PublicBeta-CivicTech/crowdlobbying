@@ -36,3 +36,7 @@ services:
         arguments:
             - '@App\Repository\CampaignRepository'
             - '@App\Utils\XlsWriter'
+
+    App\Controller\AdminController:
+        arguments:
+            - '@App\Utils\XlsWriter'
