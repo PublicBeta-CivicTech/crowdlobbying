@@ -72,7 +72,15 @@ class CampaignEntry
 
     public function __toString(): string
     {
-        return (string) $this->argument->getArgument();
+        if (null !== $this->argument) {
+            return (string) $this->argument->getArgument();
+        }
+
+        if (null !== $this->personArgument) {
+            return (string) $this->personArgument->getArgument();
+        }
+
+        return '';
     }
 
     public function getRandomColor(): string
