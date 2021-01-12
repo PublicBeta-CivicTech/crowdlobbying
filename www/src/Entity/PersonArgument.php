@@ -37,6 +37,12 @@ class PersonArgument
     private $campaign;
 
     /**
+     * @var CampaignEntry
+     * @ORM\OneToMany(targetEntity="App\Entity\CampaignEntry", mappedBy="personArgument", cascade={"persist", "remove"})
+     */
+    private $campaignEntry;
+
+    /**
      * @var Person
      * @ORM\ManyToOne(targetEntity="App\Entity\Person")
      * @ORM\JoinColumn(nullable=false)
@@ -73,6 +79,18 @@ class PersonArgument
     public function setCampaign(?Campaign $campaign): self
     {
         $this->campaign = $campaign;
+
+        return $this;
+    }
+
+    public function getCampaignEntry(): ?CampaignEntry
+    {
+        return $this->campaignEntry;
+    }
+
+    public function setCampaignEntry(?CampaignEntry $campaignEntry): self
+    {
+        $this->campaignEntry = $campaignEntry;
 
         return $this;
     }
