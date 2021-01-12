@@ -235,7 +235,6 @@ Gerbergasse 30<br>
       <notes>
         <note category="file-source" priority="1">www/templates/campaign/thanks.html.twig:10</note>
         <note category="file-source" priority="1">www/templates/campaign/lobby.html.twig:11</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>Lobbyiere jetzt bei</source>
@@ -451,10 +450,19 @@ Gerbergasse 30<br>
         <target>Wählen Sie eine Nachricht</target>
       </segment>
     </unit>
+    <unit id="5lJHajV" name="Eigene Nachricht erfassen">
+      <notes>
+        <note category="file-source" priority="1">www/templates/campaign/lobby.html.twig:46</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>Eigene Nachricht erfassen</source>
+        <target></target>
+      </segment>
+    </unit>
     <unit id=".yPxzCz" name="Meine Nachricht">
       <notes>
         <note category="file-source" priority="1">www/templates/campaign/lobby.html.twig:53</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>Meine Nachricht</source>
