@@ -43,19 +43,6 @@
                                 </label>
                             {% endfor %}
                         </div>
-                        <div class="act__custom-message act__center-col"><a class="act__custom-message--toggler" href="#" onclick="app.act.addCustomMessage(); return false;">Eigene Nachricht erfassen</a>
-                            <div class="mdc-text-field mdc-text-field--textarea act__input act__textarea">
-                                <div class="mdc-text-field-character-counter"></div>
-                                <textarea class="mdc-text-field__input" name="custom-argument" id="custom-argument" type="textarea" maxlength="100"></textarea>
-                                <div class="mdc-notched-outline">
-                                    <div class="mdc-notched-outline__leading"></div>
-                                    <div class="mdc-notched-outline__notch">
-                                        <label class="mdc-floating-label" for="custom-argument">Argument</label>
-                                    </div>
-                                    <div class="mdc-notched-outline__trailing"></div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="act__center-col center-text richtext">
                             <h2>{% trans %}Absender{% endtrans %}</h2>
                             <div class="mdc-text-field mdc-text-field--outlined act__input">
