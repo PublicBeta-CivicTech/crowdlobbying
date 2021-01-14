@@ -156,8 +156,9 @@ class CampaignController extends AbstractController
         $form = $this->createForm(PersonType::class, $person);
         $form->handleRequest($request);
 
+        $customArgument = $request->request->get('custom-argument');
+
         if ($form->isSubmitted() && $form->isValid() && $this->isCsrfTokenValid('person', $request->request->get('token'))) {
-            $customArgument = $request->request->get('custom-argument');
             $argument = $argumentRepository->findOneBy([
                 'campaign' => $campaign,
                 'id' => $request->request->get('argument', 0),
@@ -237,6 +238,7 @@ class CampaignController extends AbstractController
             'politician' => $politician,
             'form' => $form->createView(),
             'person' => $person,
+            'customArgument' => $customArgument,
         ]);
     }
 
