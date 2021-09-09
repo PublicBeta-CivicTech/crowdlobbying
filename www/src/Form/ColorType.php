@@ -6,7 +6,6 @@ namespace App\Form;
 
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Wandi\ColorPickerBundle\Form\Type\ColorPickerType;
 use Wandi\ColorPickerBundle\PickerOptions\Theme;
 
@@ -20,16 +19,5 @@ class ColorType extends ColorPickerType
         ]);
 
         parent::buildView($view, $form, $options);
-    }
-
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        parent::configureOptions($resolver);
-
-        $resolver->resolve([
-            'pickr_options' => [
-                'theme' => Theme::NANO,
-            ],
-        ]);
     }
 }
