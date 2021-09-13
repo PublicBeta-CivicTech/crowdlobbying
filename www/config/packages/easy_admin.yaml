@@ -26,6 +26,7 @@ easy_admin:
           - { property: 'ogImageFileDe', type: 'vich_image' }
           - { property: 'ogImageFileFr', type: 'vich_image' }
           - { property: 'heroBackgroundFile', type: 'vich_image' }
+          - colors
           - hero
           - heroSubline
           - total
