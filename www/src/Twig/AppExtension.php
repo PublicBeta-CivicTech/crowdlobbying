@@ -37,7 +37,7 @@ class AppExtension extends AbstractExtension
     public function getColor($context): string
     {
         /** @var CampaignEntry|null $campaignEntry */
-        $campaignEntry = $context['entry'];
+        $campaignEntry = $context['entry'] ?? $context['campaignEntry'];
 
         if (!$campaignEntry instanceof CampaignEntry) {
             return $this->colors[array_rand($this->colors)];
