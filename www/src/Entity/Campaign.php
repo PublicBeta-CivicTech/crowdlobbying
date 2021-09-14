@@ -268,8 +268,8 @@ class Campaign
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Color")
      * @ORM\JoinTable(name="campaigns_colors",
-     *     joinColumns={@ORM\JoinColumn(name="campaign_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="color_id", referencedColumnName="id")}
+     *     joinColumns={@ORM\JoinColumn(name="campaign_id", referencedColumnName="id", onDelete="CASCADE")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="color_id", referencedColumnName="id", onDelete="CASCADE")}
      * )
      */
     private $colors;
