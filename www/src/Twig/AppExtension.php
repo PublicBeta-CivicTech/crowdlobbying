@@ -39,6 +39,7 @@ class AppExtension extends AbstractExtension
     {
         $campaign = $context['campaign'] ?? null;
         $campaignEntry = $context['entry'] ?? $context['campaignEntry'] ?? null;
+        $colors = null;
 
         if (null === $campaignEntry && null === $campaign) {
             return $this->colors[array_rand($this->colors)];
@@ -50,6 +51,10 @@ class AppExtension extends AbstractExtension
 
         if ($campaign instanceof Campaign) {
             $colors = $campaign->getColors();
+        }
+
+        if (null === $colors) {
+            return $this->colors[array_rand($this->colors)];
         }
 
         if (!$colors->count()) {
