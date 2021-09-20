@@ -53,11 +53,7 @@ class AppExtension extends AbstractExtension
             $colors = $campaign->getColors();
         }
 
-        if (null === $colors) {
-            return $this->colors[array_rand($this->colors)];
-        }
-
-        if (!$colors->count()) {
+        if (null === $colors || !$colors->count()) {
             return $this->colors[array_rand($this->colors)];
         }
 
