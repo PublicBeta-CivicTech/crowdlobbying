@@ -37,7 +37,7 @@
                             {% for argument in campaign.arguments %}
                                 <label for="argument-{{ loop.index }}">
                                     <input type="radio" name="argument" id="argument-{{ loop.index }}" value="{{ argument.id }}" style="visibility: hidden;" />
-                                    <blockquote class="act__message" onclick="app.act.selectMessage()">
+                                    <blockquote class="act__message" onclick="app.act.selectMessage()" data-color="{{ campaign|color }}">
                                         {% trans %}«{% endtrans %}{{ argument }}{% trans %}»{% endtrans %}
                                     </blockquote>
                                 </label>
