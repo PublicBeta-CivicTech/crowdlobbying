@@ -10,7 +10,7 @@
                     <div class="hero__content"><h2>{% if campaign is defined and campaign.heroSubline | length > 0 %}{{ campaign.heroSubline }}{% else %}{% trans %}Crowd-Lobbying{% endtrans %}{% endif %}</h2>
                         <h1>{{ campaign.hero }}</h1>
                         <p>{{ total }} {{ campaign.total }}</p>
-                        <button class="action-button medium" onclick="utils.scrollTo('.how-it-works', { offset: document.querySelector('.header').offsetHeight * -1 })">
+                        <button class="action-button medium {% if campaign.archived %} action-button--disabled {% endif %}" onclick="utils.scrollTo('.how-it-works', { offset: document.querySelector('.header').offsetHeight * -1 })">
                             {% trans %}Mitmachen{% endtrans %}
                         </button>
                     </div>
@@ -120,7 +120,7 @@
                                     {% trans %}Stimmabsicht{% endtrans %}
                                 </span>
                                 <a href="{{ path('app_campaign_lobby', {'campaign': campaign.slug, 'slug': politician.slug}) }}">
-                                    <button class="action-button small official__button{{ wipCount == constant('App\\Entity\\WipCount::WIP_COUNT_TYPE_YES') ? ' visually-hidden' }}">
+                                    <button class="action-button small official__button{{ wipCount == constant('App\\Entity\\WipCount::WIP_COUNT_TYPE_YES') ? ' visually-hidden' }} {% if campaign.archived %} action-button--disabled {% endif %}">
                                         {% trans %}Lobbyieren{% endtrans %}
                                     </button>
                                 </a>

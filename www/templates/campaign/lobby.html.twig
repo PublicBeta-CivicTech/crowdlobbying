@@ -132,7 +132,7 @@
                             </div>
                             <input type="hidden" name="color" id="card-color">
                             <input type="hidden" name="token" value="{{ csrf_token('person') }}" />
-                            <button class="action-button medium act__button" type="submit">{% trans %}Abschicken{% endtrans %}</button>
+                            <button class="action-button medium act__button {% if campaign.archived %} action-button--disabled {% endif %}" type="submit">{% trans %}Abschicken{% endtrans %}</button>
                         </div>
                     </form>
                     <div class="act__legal act__center-col richtext">
