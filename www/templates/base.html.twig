@@ -76,6 +76,7 @@
         </symbol>
     </svg>
 </div>
+{% block header %}
 <header class="header {{ headerClass }}" id="header">
     <h1 class="header__logotype"><a class="header__home-link" href="/">
             <svg class="logotype">
@@ -85,6 +86,7 @@
     <button class="hamburger hamburger--spin" id="hamburger" type="button" onclick="app.menu.toggle()"><span
                 class="hamburger-box"><span class="hamburger-inner"></span></span></button>
 </header>
+{% endblock %}
 {% block body %}{% endblock %}
 {% if hasFAQ %}
     <section class="faq {{ sectionColor }}">
