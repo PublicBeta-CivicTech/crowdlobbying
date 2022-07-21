@@ -1,6 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+{% if campaign.archived %}
+    <section class="campaign-info campaign-info--archived">
+        <div class="viewport-width">
+            <div class="page-width">
+                <div class="layout-width">
+                    <div class="campaign-info__content"><p class="lead">{% trans %}Diese Kampagne ist archiviert.{% endtrans %}</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
 {% set heroImage = vich_uploader_asset(campaign, 'heroBackgroundFile') %}
 <section class="hero" {% if heroImage %} style="background-image: url('{{ heroImage }}')" {% endif %}>
     <div class="hero__inner">
