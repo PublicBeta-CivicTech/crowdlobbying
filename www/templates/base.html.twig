@@ -7,7 +7,7 @@
 {% set ogImage = '/assets/meta/crowd-lobbying-og-image.jpg' | trans %}
 {% set ogDescription = 'default_og_description' | trans %}
 
-{% if campaign is defined %}
+{% if campaign is defined%}
     {% set description = campaign.campaignDescription | trim %}
     {% set title = campaign.campaignTitle %}
     {% set ogImage = app.request.getUriForPath(vich_uploader_asset(campaign, 'ogImageFile' ~ (app.request.locale | capitalize))) %}
@@ -77,7 +77,7 @@
     </svg>
 </div>
 {% block header %}
-    {% if campaign.archived %}
+    {% if campaign.archived|default(false) %}
         <section class="campaign-info campaign-info--archived">
             <div class="viewport-width">
                 <div class="page-width">
