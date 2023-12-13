@@ -206,20 +206,19 @@
 </nav>
 <script async src="{{ asset('app.js', 'app') }}"></script>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139693155-2"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
 
+{% block analytics %}
+    {% if app.request.locale == 'fr' %}
+        {% include '/partials/analytics.html.twig' with { code: 'r5OzcJaj' } only %}
+    {% else %}
+        {% include '/partials/analytics.html.twig' with { code: 'O5e3mXfa' } only %}
+    {% endif %}
+{% endblock %}
+
+<script>
     function reloadWithRegion(value) {
         window.location.href = '/{{ app.request.locale }}/' + value + '#how-it-works';
     }
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-    gtag('config', 'UA-139693155-2');</script>
-    <!-- crowd-lobbying-frontend v.1.0.0-alpha.16 -->
+</script>
 </body>
 </html>
