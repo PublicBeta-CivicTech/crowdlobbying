@@ -17,7 +17,7 @@ class WriteJsonCommand extends Command
     protected $jsonWriter;
     protected $campaignRepository;
 
-    public function __construct(string $name = null, JsonWriter $jsonWriter, CampaignRepository $campaignRepository)
+    public function __construct(JsonWriter $jsonWriter, CampaignRepository $campaignRepository)
     {
         $this->jsonWriter = $jsonWriter;
         $this->campaignRepository = $campaignRepository;
