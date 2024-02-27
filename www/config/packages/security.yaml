@@ -5,7 +5,7 @@ security:
             memory:
                 users:
                     admin:
-                        password: $2y$12$POysqVQYFItwbC/18g7zQ.YfBhpWGQe80raPUp197W2IbYYlydz3K
+                        password: $2y$12$5KMHEY57YY.hnhhmMNCjJuR.J6yaT5UaCjgaAdoSt8JK74Hbx7PLW
                         roles: 'ROLE_ADMIN'
     encoders:
         Symfony\Component\Security\Core\User\User:
